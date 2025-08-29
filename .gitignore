@@ -1,0 +1,15 @@
+# Node
+node_modules/
+dist/
+*.log
+
+# .NET / C#
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# Sistema
+.DS_Store
+Thumbs.db
