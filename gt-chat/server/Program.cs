@@ -129,6 +129,21 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+// Aplicar migraciones automáticamente al iniciar (evita ejecutar manualmente 'dotnet ef database update')
+using (var scope = app.Services.CreateScope())
+{
+    try
+    {
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        db.Database.Migrate();
+        Console.WriteLine("✅ Migraciones aplicadas");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("⚠️ Error migrando: " + ex.Message);
+    }
+}
+
 // Configure the HTTP request pipeline.
 var enableSwaggerEnv = Environment.GetEnvironmentVariable("ENABLE_SWAGGER");
 var enableSwagger = enableSwaggerEnv == null
