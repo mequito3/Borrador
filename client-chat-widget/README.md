@@ -25,12 +25,20 @@ El script `prepare` corre el build automáticamente antes de publicar (npm >=7).
 
 ## Uso rápido
 
+Archivo UMD (para incluir vía `<script>`): `dist/client-chat-widget.umd.cjs`
+
+Ejemplo embebido sin bundler:
+
 ```html
 <div id="client-chat-widget"></div>
-<script src="/ruta/a/client-chat-widget.umd.js"></script>
 <script>
+	// Rutas a tus endpoints (antes de cargar el script de la librería)
 	window.CHAT_API_BASE = 'https://mi-api.com/api';
 	window.CHAT_SIGNALR_BASE = 'https://mi-api.com';
+</script>
+<script src="/ruta/a/client-chat-widget.umd.cjs"></script>
+<script>
+	// El bundle UMD expone global `ClientChatWidget`
 	ClientChatWidget.mountClientChat({
 		clientId: 'cliente-123',
 		clientName: 'Juan',

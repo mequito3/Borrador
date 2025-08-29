@@ -1,6 +1,6 @@
 {
   "name": "client-chat-widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "./dist/client-chat-widget.umd.cjs",
   "module": "./dist/client-chat-widget.js",
@@ -37,9 +37,8 @@
   ],
   "scripts": {
     "dev": "vite",
-  "build": "tsc && vite build && npm run copy-css",
-  "copy-css": "powershell -Command \"New-Item -ItemType Directory -Force -Path dist\\styles; Copy-Item -Path src\\styles\\ClientChat.css -Destination dist\\styles\\ClientChat.css; if (Test-Path src\\styles\\tokens.css) { Copy-Item -Path src\\styles\\tokens.css -Destination dist\\styles\\tokens.css }\"",
-  "prepare": "npm run build",
+    "build": "tsc && vite build && node scripts/copy-css.mjs",
+    "prepare": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -67,6 +66,9 @@
     "vite-plugin-css-injected-by-js": "^3.5.2"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
