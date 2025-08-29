@@ -13,8 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Cargar variables de entorno (.env) si existiera DotNetEnv (opcional) - se puede añadir paquete si se desea
 
 // Parámetros desde environment / appsettings
-var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:5173";
-var frontendProdUrl = Environment.GetEnvironmentVariable("FRONTEND_PROD_URL");
+var rawFrontend = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:5173"; // puedes poner varios separados por coma
+var rawFrontendProd = Environment.GetEnvironmentVariable("FRONTEND_PROD_URL");
 var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? "UploadedFiles";
 
 // Add services
@@ -26,16 +26,29 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ChatCors", policy =>
     {
-        var origins = new List<string> { frontendUrl };
-        if (!string.IsNullOrWhiteSpace(frontendProdUrl)) origins.Add(frontendProdUrl);
-        origins.Add("http://localhost:5000");
+        var origins = new List<string>();
 
-        // En desarrollo aceptar cualquier puerto localhost (útil si Vite cambia 5173 -> 5174)
+        void AddMany(string? val)
+        {
+            if (string.IsNullOrWhiteSpace(val)) return;
+            foreach (var part in val.Split(new[] { ',', ';', ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var clean = part.Trim().TrimEnd('/');
+                if (!origins.Contains(clean, StringComparer.OrdinalIgnoreCase))
+                    origins.Add(clean);
+            }
+        }
+
+        AddMany(rawFrontend);
+        AddMany(rawFrontendProd);
+        // Siempre permitir backend local dev
+        if (!origins.Contains("http://localhost:5000")) origins.Add("http://localhost:5000");
+
         policy.SetIsOriginAllowed(origin =>
         {
             if (string.IsNullOrEmpty(origin)) return false;
             if (origin.StartsWith("http://localhost") || origin.StartsWith("https://localhost")) return true;
-            return origins.Contains(origin, StringComparer.OrdinalIgnoreCase);
+            return origins.Contains(origin.TrimEnd('/'), StringComparer.OrdinalIgnoreCase);
         })
         .AllowAnyHeader()
         .AllowAnyMethod()

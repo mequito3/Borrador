@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj": {}
+    "c:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj": {
+    "c:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
+        "projectUniqueName": "c:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
+        "projectPath": "c:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
         "packagesPath": "C:\\Users\\ameri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\obj\\",
+        "outputPath": "c:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ameri\\AppData\\Roaming\\NuGet\\NuGet.Config"
