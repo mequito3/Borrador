@@ -1,0 +1,56 @@
+/* Design Tokens for Client Chat Widget
+   These CSS variables can be overridden by host page by defining them under
+   .gtc-chat-root or :root BEFORE the widget bundle is loaded.
+*/
+:root {
+  /* Color palette */
+  --chat-color-primary: #3b82f6;
+  --chat-color-primary-accent: #2563eb;
+  --chat-color-bg: #ffffff;
+  --chat-color-bg-soft: #f5f7fa;
+  --chat-color-border: #e2e8f0;
+  --chat-color-text: #1e293b;
+  --chat-color-text-muted: #64748b;
+  --chat-color-danger: #ef4444;
+  --chat-color-warning: #fbbf24;
+  --chat-color-success: #16a34a;
+
+  /* Shadows & effects */
+  --chat-shadow-sm: 0 2px 4px -1px rgba(0,0,0,0.06), 0 1px 3px -1px rgba(0,0,0,0.10);
+  --chat-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  /* Typography */
+  --chat-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --chat-font-size-xs: 0.6875rem; /* 11px */
+  --chat-font-size-sm: 0.75rem;    /* 12px */
+  --chat-font-size: 0.875rem;      /* 14px base */
+  --chat-font-size-md: 0.9375rem;  /* 15px */
+  --chat-font-size-lg: 1rem;       /* 16px */
+
+  /* Spacing scale */
+  --chat-space-1: 2px;
+  --chat-space-2: 4px;
+  --chat-space-3: 6px;
+  --chat-space-4: 8px;
+  --chat-space-5: 10px;
+  --chat-space-6: 12px;
+  --chat-space-8: 16px;
+  --chat-space-10: 20px;
+  --chat-space-12: 24px;
+
+  /* Layout */
+  --chat-radius-sm: 4px;
+  --chat-radius: 14px;
+  --chat-transition: 0.2s cubic-bezier(.4,0,.2,1);
+  --chat-focus-ring: 0 0 0 3px color-mix(in srgb, var(--chat-color-primary) 55%, white);
+}
+
+/* Explicit dark theme (opt-in). Add data-theme="dark" to .gtc-chat-root */
+.gtc-chat-root[data-theme='dark'] {
+  --chat-color-bg: #1f2937;
+  --chat-color-bg-soft: #273548;
+  --chat-color-border: #334155;
+  --chat-color-text: #f1f5f9;
+  --chat-color-text-muted: #94a3b8;
+  --chat-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}

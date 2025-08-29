@@ -1,0 +1,12 @@
+/* Archivo restaurado para evitar error Vite: main.tsx importaba ./index.css */
+:root {
+  color-scheme: light dark;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: system-ui, sans-serif;
+}
+
+/* Puedes añadir estilos globales mínimos aquí o eliminar la importación en main.tsx si no necesitas este archivo. */

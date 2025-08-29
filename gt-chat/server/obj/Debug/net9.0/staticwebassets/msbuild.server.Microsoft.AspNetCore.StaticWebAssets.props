@@ -1,0 +1,76 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\06cfdc80-793a-4a13-a9b3-4fb6acbc5b7c_20250603225754_Proyecto_americo.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>server</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/server</BasePath>
+      <RelativePath>uploads/06cfdc80-793a-4a13-a9b3-4fb6acbc5b7c_20250603225754_Proyecto_americo.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>fng5sucsyq</Fingerprint>
+      <Integrity>dYhxPS08T33beh7I2QysWswwMJKHoMY3FVi4Gj1Z3Jo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\06cfdc80-793a-4a13-a9b3-4fb6acbc5b7c_20250603225754_Proyecto_americo.pdf'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c086455-1d10-46c0-8129-2eac4d4e5646_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>server</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/server</BasePath>
+      <RelativePath>uploads/1c086455-1d10-46c0-8129-2eac4d4e5646_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9j5qriyr2l</Fingerprint>
+      <Integrity>e/7CA7PIhZCXNu2tDmzkqnaFkfGk9qhW6vNI8TyExTw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c086455-1d10-46c0-8129-2eac4d4e5646_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\5aa67777-6238-42ac-aa7a-9a435c209323_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>server</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/server</BasePath>
+      <RelativePath>uploads/5aa67777-6238-42ac-aa7a-9a435c209323_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9j5qriyr2l</Fingerprint>
+      <Integrity>e/7CA7PIhZCXNu2tDmzkqnaFkfGk9qhW6vNI8TyExTw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\5aa67777-6238-42ac-aa7a-9a435c209323_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\96b60403-d546-44f2-957a-65925aba6e0d_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>server</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/server</BasePath>
+      <RelativePath>uploads/96b60403-d546-44f2-957a-65925aba6e0d_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9j5qriyr2l</Fingerprint>
+      <Integrity>e/7CA7PIhZCXNu2tDmzkqnaFkfGk9qhW6vNI8TyExTw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\96b60403-d546-44f2-957a-65925aba6e0d_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png'))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

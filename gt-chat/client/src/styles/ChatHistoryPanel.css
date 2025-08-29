@@ -1,0 +1,215 @@
+
+/* Layout principal del historial */
+.chat-history-layout {
+  display: flex;
+  height: 100vh;
+  background: var(--background-secondary);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cuando no hay panel de cliente seleccionado */
+.chat-history-layout.no-client-panel .chat-history-main {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Panel principal del historial */
+.chat-history-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-primary);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+/* Estado vacío del historial */
+.chat-history-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--background-primary) 100%);
+  padding: var(--spacing-12);
+  text-align: center;
+  height: 100%;
+  max-height: 100vh;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.chat-history-empty .history-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-6);
+  opacity: 0.6;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.chat-history-empty .history-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+}
+
+.chat-history-empty .history-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+  max-width: 400px;
+}
+
+/* Ajustes específicos para evitar espacios en blanco */
+.chat-history-layout * {
+  box-sizing: border-box;
+}
+
+/* Prevenir desbordamiento en la parte superior */
+.chat-history-layout,
+.chat-history-layout > *,
+.chat-history-layout .chat-history-main,
+.chat-history-layout .chat-history-empty {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  vertical-align: top;
+}
+
+/* Asegurar que el body y html no tengan márgenes que afecten */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Override completo para evitar conflictos con otros estilos */
+.chat-history-layout .chat-window {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  width: 100% !important;
+  flex: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.chat-history-layout .chat-window-empty {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  min-height: 100vh !important;
+  height: 100% !important;
+  max-height: 100vh !important;
+  width: 100% !important;
+  flex: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.chat-history-layout .chat-list-panel {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  width: 360px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Remover márgenes y espacios de ClientInfoPanel */
+.chat-history-layout .client-info-panel {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  width: 300px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-history-layout {
+    flex-direction: column;
+  }
+  
+  .chat-history-main {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+  }
+  
+  .chat-history-empty {
+    padding: var(--spacing-8);
+    height: 100vh;
+  }
+  
+  .chat-history-layout .chat-list-panel {
+    width: 100% !important;
+    height: 50vh !important;
+  }
+  
+  .chat-history-layout .client-info-panel {
+    width: 100% !important;
+    height: 50vh !important;
+  }
+}
+
+/* Animaciones suaves */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-history-layout {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Scroll personalizado */
+.chat-history-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-history-main::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: var(--border-radius-full);
+}
+
+.chat-history-main::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--border-radius-full);
+}
+
+.chat-history-main::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}

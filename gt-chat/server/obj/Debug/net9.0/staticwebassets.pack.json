@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Americo\\Desktop\\chat\\gt-chat\\server\\wwwroot\\uploads\\06cfdc80-793a-4a13-a9b3-4fb6acbc5b7c_20250603225754_Proyecto_americo.pdf",
+      "PackagePath": "staticwebassets\\uploads\\06cfdc80-793a-4a13-a9b3-4fb6acbc5b7c_20250603225754_Proyecto_americo.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Americo\\Desktop\\chat\\gt-chat\\server\\wwwroot\\uploads\\1c086455-1d10-46c0-8129-2eac4d4e5646_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png",
+      "PackagePath": "staticwebassets\\uploads\\1c086455-1d10-46c0-8129-2eac4d4e5646_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png"
+    },
+    {
+      "Id": "C:\\Users\\Americo\\Desktop\\chat\\gt-chat\\server\\wwwroot\\uploads\\5aa67777-6238-42ac-aa7a-9a435c209323_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png",
+      "PackagePath": "staticwebassets\\uploads\\5aa67777-6238-42ac-aa7a-9a435c209323_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png"
+    },
+    {
+      "Id": "C:\\Users\\Americo\\Desktop\\chat\\gt-chat\\server\\wwwroot\\uploads\\96b60403-d546-44f2-957a-65925aba6e0d_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png",
+      "PackagePath": "staticwebassets\\uploads\\96b60403-d546-44f2-957a-65925aba6e0d_ChatGPT Image 1 jun 2025, 10_42_51 p.m..png"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.server.props",
+      "PackagePath": "build\\server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.server.props",
+      "PackagePath": "buildMultiTargeting\\server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.server.props",
+      "PackagePath": "buildTransitive\\server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.server.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.server.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

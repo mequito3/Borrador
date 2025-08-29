@@ -1,0 +1,74 @@
+{
+  "name": "client-chat-widget",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/client-chat-widget.umd.cjs",
+  "module": "./dist/client-chat-widget.js",
+  "types": "./dist/index.d.ts",
+  "description": "Widget de chat embebible (React + SignalR) con theming por CSS tokens y montaje dinámico.",
+  "keywords": [
+    "chat",
+    "widget",
+    "react",
+    "signalr",
+    " soporte",
+    "live-chat"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geotect-Team/gt-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Geotect-Team/gt-chat/issues"
+  },
+  "homepage": "https://github.com/Geotect-Team/gt-chat#readme",
+  "author": "Geotect-Team",
+  "exports": {
+    ".": {
+      "import": "./dist/client-chat-widget.js",
+      "require": "./dist/client-chat-widget.umd.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles/ClientChat.css": "./dist/styles/ClientChat.css",
+    "./styles/tokens.css": "./dist/styles/tokens.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+  "build": "tsc && vite build && npm run copy-css",
+  "copy-css": "powershell -Command \"New-Item -ItemType Directory -Force -Path dist\\styles; Copy-Item -Path src\\styles\\ClientChat.css -Destination dist\\styles\\ClientChat.css; if (Test-Path src\\styles\\tokens.css) { Copy-Item -Path src\\styles\\tokens.css -Destination dist\\styles\\tokens.css }\"",
+  "prepare": "npm run build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@microsoft/signalr": "^7.0.14",
+    "emoji-picker-react": "^4.12.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  }
+}

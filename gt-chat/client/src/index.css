@@ -1,0 +1,19 @@
+
+/* Importar variables del tema PRIMERO */
+@import './styles/theme-variables.css';
+
+/* Importar reset y base */
+@import './styles/dashboard-theme.css';
+
+/* Importar estilos de componentes específicos */
+@import './styles/AgentDashboard.css';
+@import './styles/Sidebar.css';
+@import './styles/ChatListPanel.css';
+@import './styles/ChatWindow.css';
+@import './styles/ClientInfoPanel.css';
+@import './styles/EndChatModal.css';
+@import './styles/StatisticsPanel.css';
+@import './styles/MessageBubbleDeleted.css';
+@import './styles/ChatHistoryPanel.css';
+
+/* Tailwind removido: usando solo CSS propio */
