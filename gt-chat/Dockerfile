@@ -1,13 +1,17 @@
-# Etapa de build
+# Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY . .
+# Copiamos solo el .csproj primero para cache eficiente
+COPY server/server.csproj server/
+RUN dotnet restore server/server.csproj
+# Copiamos el resto del código
+COPY server/ server/
+WORKDIR /src/server
 RUN dotnet publish server.csproj -c Release -o /app/publish
 
-# Etapa final (runtime)
+# Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-# Render te asigna el puerto en la variable PORT
 ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT}
-ENTRYPOINT ["dotnet", "server.dll"]
+ENTRYPOINT ["dotnet","server.dll"]
