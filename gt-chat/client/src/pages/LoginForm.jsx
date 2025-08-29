@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { login } from "../services/authService";
+import { login } from "../Services/authService";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiLock, FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 import "../styles/LoginForm.css"; // Ensure you have the correct path to your CSS file

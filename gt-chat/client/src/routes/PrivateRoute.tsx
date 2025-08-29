@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { getToken } from "../services/authService";
+import { getToken } from "../Services/authService";
 
 const PrivateRoute = ({ children }) => {
   const token = getToken();

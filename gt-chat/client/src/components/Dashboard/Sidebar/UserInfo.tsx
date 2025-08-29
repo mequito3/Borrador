@@ -1,7 +1,7 @@
 // components/Dashboard/Sidebar/UserInfo.tsx
 import { useEffect, useState } from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
-import { getToken, logout, parseToken } from "../../../services/authService";
+import { getToken, logout, parseToken } from "../../../Services/authService";
 
 const UserInfo = () => {
   const [username, setUsername] = useState("");

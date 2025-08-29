@@ -3,13 +3,13 @@ import Sidebar from "./Sidebar/Sidebar";
 import ChatListPanel from "./ChatListPanel/ChatListPanel";
 import ChatWindow from "./ChatWindow/ChatWindow";
 import ClientInfoPanel from "./ClientInfoPanel/ClientInfoPanel";
-import { getToken, ensureValidSession } from "../../services/authService";
+import { getToken, ensureValidSession } from "../../Services/authService";
 import { API_BASE, withApi } from "../../config";
 import {
   connectAgentToChat,
   stopConnection,
   connectToGlobalNotifications,
-} from "../../services/signalRService";
+} from "../../Services/signalRService";
 import EndChatModal from "./Modals/EndChatModal";
 import ChatHistoryPanel from "./ChatHistoryPanel/ChatHistoryPanel";
 import StatisticsPanel from "./ChatStatisticsPanel/StatisticsPanel";
