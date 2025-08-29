@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pMAKvSq3Hc4=",
+  "dgSpecHash": "S1TjYMHG9so=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec\\gt-chat\\server\\server.csproj",
+  "projectFilePath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ameri\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ameri\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

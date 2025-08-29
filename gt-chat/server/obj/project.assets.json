@@ -4966,11 +4966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ameri\\Desktop\\Pasantias geotec\\gt-chat\\server\\server.csproj",
+      "projectUniqueName": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec\\gt-chat\\server\\server.csproj",
+      "projectPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\server.csproj",
       "packagesPath": "C:\\Users\\ameri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec\\gt-chat\\server\\obj\\",
+      "outputPath": "C:\\Users\\ameri\\Desktop\\Pasantias geotec - copia\\gt-chat\\server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ameri\\AppData\\Roaming\\NuGet\\NuGet.Config"
