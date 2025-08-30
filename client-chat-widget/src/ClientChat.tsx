@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { startChatSession } from "./services/apiService";
+import { startChatSession, resolveApiBase } from "./services/apiService";
 import { connectClientToChat, disconnectClient } from "./services/signalrClient";
 import ChatFab from "./components/ChatFab";
 import ChatHeader from "./components/ChatHeader";
@@ -15,10 +15,12 @@ import type { ChatMessage, FileAttachment } from './types/chat';
 interface ClientChatProps {
   clientId: string;
   clientName?: string;
-  systemCode: "geoportal" | "erp" | "avaluos";
+  systemCode: string; // se permite cualquier string ahora (antes limitado)
+  apiBase?: string; // override explícito para API (ej: https://borrador-n453.onrender.com/api)
+  systemOriginIdOverride?: number; // si se quiere ignorar el mapeo interno 1/2/3
 }
 
-const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) => {
+const ClientChat = ({ clientId, clientName = "", systemCode, apiBase, systemOriginIdOverride }: ClientChatProps) => {
   const [chatId, setChatId] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [newMsg, setNewMsg] = useState<string>("");
@@ -42,11 +44,11 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
   };
 
   const getSystemOriginId = (): number => {
-    switch (systemCode) {
-      case "erp": return 2;
-      case "avaluos": return 3;
-      default: return 1;
-    }
+    if (typeof systemOriginIdOverride === 'number') return systemOriginIdOverride;
+    // Mapeo legacy: mantener por compatibilidad
+    if (systemCode === 'erp') return 2;
+    if (systemCode === 'avaluos') return 3;
+    return 1; // geoportal u otros
   };
 
   // Cargar estado del chat desde localStorage al inicializar
@@ -181,7 +183,9 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
               
               // Construir URL completa para el archivo
               if (filePath && !filePath.startsWith('http')) {
-                filePath = `http://localhost:5000/${filePath}`;
+                const apiBase = (typeof window !== 'undefined' && (window as any).CHAT_API_BASE) || (import.meta as any)?.env?.VITE_CHAT_API_BASE || 'https://borrador-n453.onrender.com/api';
+                const origin = apiBase.replace(/\/api$/, '');
+                filePath = `${origin}/${filePath}`;
               }
               
               const processedAttachment = {
@@ -207,7 +211,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
 
             console.log("✅ Agregando mensaje:", newMessage);
 
-            setMessages((prev) => {
+            setMessages((prev: ChatMessage[]) => {
               // Lógica especial para archivos: si llega un mensaje con "[Archivo]" y attachments,
               // eliminar cualquier mensaje previo con "[Archivo]" sin attachments del mismo sender en los últimos 15 segundos
               if (content === '[Archivo]' && processedAttachments.length > 0) {
@@ -215,7 +219,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
                 
                 const now = new Date(sentAt).getTime();
                 
-                const filteredPrev = prev.filter(msg => {
+                const filteredPrev = prev.filter((msg: ChatMessage) => {
                   // Mantener todos los mensajes que NO sean "[Archivo]" 
                   if (msg.content !== '[Archivo]') {
                     return true;
@@ -255,7 +259,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
                 const now = new Date(sentAt).getTime();
                 
                 // Buscar si ya existe un mensaje con attachments del mismo sender en tiempo similar
-                const hasAttachmentVersion = prev.some(msg => {
+                const hasAttachmentVersion = prev.some((msg: ChatMessage) => {
                   const msgTime = new Date(msg.sentAt).getTime();
                   const timeDiff = Math.abs(now - msgTime);
                   const isSameSender = msg.sender === validSender;
@@ -272,7 +276,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
               }
               
               // Para otros mensajes, verificar duplicados normalmente
-              const isDuplicate = prev.some(msg => {
+              const isDuplicate = prev.some((msg: ChatMessage) => {
                 // Si el contenido, timestamp y sender son exactamente iguales
                 const sameContent = msg.content === newMessage.content;
                 const sameTimestamp = msg.sentAt === sentAt;
@@ -296,7 +300,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
             
             // Incrementar contador si el chat está cerrado y el mensaje no es del cliente
             if (!isOpen && sender !== 'client') {
-              setUnreadCount(prev => prev + 1);
+              setUnreadCount((prev: number) => prev + 1);
             }
           },
           // Callback para cuando el chat es cerrado por soporte
@@ -311,7 +315,7 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
               sentAt: timestamp
             };
             
-            setMessages((prev) => {
+            setMessages((prev: ChatMessage[]) => {
               const updated = [...prev, systemMessage];
               // Guardar mensajes en localStorage
               localStorage.setItem(storageKeys.messages, JSON.stringify(updated));
@@ -343,12 +347,18 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
     let id = chatId;
     
     if (!hasStarted) {
-      id = await startChatSession(clientId, systemCode, clientName);
-      if (!id) {
-        alert("Error al iniciar el chat");
+  const apiBaseResolved = apiBase || resolveApiBase();
+      console.log('[chat] Intentando iniciar chat en', apiBaseResolved, 'con systemCode=', systemCode);
+      const startResult = await startChatSession(clientId, systemCode, clientName, apiBaseResolved);
+      if (!startResult || !startResult.id) {
+        console.error('[chat] fallo startChat', startResult);
+        const statusTxt = startResult ? startResult.status : 'desconocido';
+        const errTxt = startResult ? (startResult.error || 'Error desconocido') : 'Sin detalles';
+        alert('No se pudo iniciar el chat (' + statusTxt + ')\n' + errTxt);
         setIsLoading(false);
         return;
       }
+      id = startResult.id;
       setChatId(id);
       setHasStarted(true);
       
@@ -358,13 +368,15 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
       localStorage.setItem(storageKeys.isClosed, 'false');
 
       // Cargar historial solo la primera vez
-      const res = await fetch(`http://localhost:5000/api/chat/${id}/messages`);
+  const resolvedApiBase = apiBase || resolveApiBase();
+  const origin = resolvedApiBase.replace(/\/api$/, '');
+  const res = await fetch(`${resolvedApiBase}/chat/${id}/messages`);
       const history = await res.json();
       const formattedHistory = history.map((msg: any) => ({
         ...msg,
         attachments: msg.attachments?.map((att: any) => ({
           ...att,
-          filePath: att.filePath?.startsWith('http') ? att.filePath : `http://localhost:5000/${att.filePath}`
+          filePath: att.filePath?.startsWith('http') ? att.filePath : `${origin}/${att.filePath}`
         }))
       }));
       
@@ -380,7 +392,9 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
 
     try {
       // Enviar mensaje al servidor
-      const response = await fetch("http://localhost:5000/api/Chat/send", {
+  const apiBase2 = apiBase || resolveApiBase();
+      console.log('[chat] enviando mensaje...');
+      const response = await fetch(`${apiBase2}/Chat/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -393,7 +407,13 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
         }),
       });
 
-      if (!response.ok) throw new Error("Error al enviar mensaje");
+      if (!response.ok) {
+        const errBody = await response.text();
+        console.error('[chat] fallo envío', response.status, errBody);
+        alert('Error al enviar mensaje (' + response.status + ')\n' + errBody);
+        setIsLoading(false);
+        return;
+      }
 
       let savedMessage = await response.json();
 
@@ -403,25 +423,23 @@ const ClientChat = ({ clientId, clientName = "", systemCode }: ClientChatProps) 
         formData.append("file", selectedFile);
         formData.append("messageId", savedMessage.id);
 
-        const uploadRes = await fetch("http://localhost:5000/api/Attachment/upload", {
+        const uploadRes = await fetch(`${apiBase2}/Attachment/upload`, {
           method: "POST",
           body: formData,
         });
 
-        if (uploadRes.ok) {
-          // No necesitamos hacer nada aquí, SignalR se encargará de enviar el mensaje actualizado
-          console.log("📎 Archivo subido exitosamente");
-        } else {
-          console.error("Error subiendo archivo");
-        }
+        if (!uploadRes.ok) {
+          const upErr = await uploadRes.text();
+            console.error('[chat] error subiendo archivo', upErr);
+        } else { console.log('📎 Archivo subido'); }
       }
 
       setNewMsg("");
       setSelectedFile(null);
       setPreviewUrl(null);
     } catch (error) {
-      console.error("Error sending message:", error);
-      alert("Error al enviar el mensaje. Inténtalo de nuevo.");
+      console.error("[chat] excepción envío:", error);
+      alert("Excepción al enviar el mensaje. Revisa consola.");
     } finally {
       setIsLoading(false);
     }

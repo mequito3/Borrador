@@ -1,6 +1,6 @@
 {
   "name": "client-chat-widget",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "type": "module",
   "main": "./dist/client-chat-widget.umd.cjs",
   "module": "./dist/client-chat-widget.js",
@@ -37,29 +37,32 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/copy-css.mjs",
+    "build:lib": "tsc && vite build && node scripts/copy-css.mjs",
+    "build:standalone": "node scripts/build-standalone.mjs",
+    "build": "npm run build:lib && npm run build:standalone",
     "prepare": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@microsoft/signalr": "^7.0.14",
-    "emoji-picker-react": "^4.12.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "emoji-picker-react": "^4.12.2"
   },
   "sideEffects": [
     "**/*.css"
   ],
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.4.1",
+    "esbuild": "^0.23.0",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
@@ -70,7 +73,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18.2.0 <20",
+    "react-dom": ">=18.2.0 <20"
   }
 }
