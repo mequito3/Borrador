@@ -1,5 +1,5 @@
 (function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode('.gtc-chat-root:root,:root{--chat-primary: var(--chat-color-primary, #3b82f6);--chat-primary-hover: var(--chat-color-primary-accent, #2563eb);--chat-secondary: var(--chat-color-text-muted, #94a3b8);--chat-success: var(--chat-color-success, #16a34a);--chat-danger: var(--chat-color-danger, #f87171);--chat-warning: var(--chat-color-warning, #fbbf24);--chat-bg: var(--chat-color-bg, #ffffff);--chat-bg-light: var(--chat-color-bg-soft, #fdfefe);--chat-bg-border: var(--chat-color-border, #e5e7eb);--chat-text: var(--chat-color-text, #1e293b);--chat-text-light: var(--chat-color-text-muted, #64748b);--chat-radius: var(--chat-radius, 14px);--chat-shadow: var(--chat-shadow, 0 6px 18px rgba(0, 0, 0, .08));--chat-transition: var(--chat-transition, all .2s ease);--chat-font: var(--chat-font-family, system-ui, sans-serif)}.gtc-chat-root .chat-widget-window,.gtc-chat-root .chat-widget-window *{box-sizing:border-box;font-family:var(--chat-font);-webkit-font-smoothing:antialiased}.gtc-chat-root .chat-fab{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:var(--chat-primary);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--chat-shadow);transition:var(--chat-transition);cursor:pointer;z-index:1000}.gtc-chat-root .chat-fab:hover{background:var(--chat-primary-hover);transform:translateY(-2px)}.gtc-chat-root .chat-fab .unread-badge{position:absolute;top:-6px;right:-6px;background:var(--chat-danger);color:#fff;border-radius:12px;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;border:2px solid white}.gtc-chat-root .chat-widget-window{position:fixed;bottom:90px;right:20px;width:360px;height:500px;background:var(--chat-bg);-webkit-backdrop-filter:saturate(140%) blur(6px);backdrop-filter:saturate(140%) blur(6px);border-radius:var(--chat-radius);box-shadow:var(--chat-shadow);display:flex;flex-direction:column;overflow:hidden;z-index:999;animation:slideUp .3s ease;border:1px solid var(--chat-bg-border)}.gtc-chat-root .chat-widget-window.minimized{height:60px}.gtc-chat-root .chat-widget-window.maximized{width:400px;height:600px}.gtc-chat-root .chat-header{background:linear-gradient(135deg,var(--chat-primary),var(--chat-primary-hover));color:#fff;padding:16px;display:flex;align-items:center;justify-content:space-between;border-radius:var(--chat-radius) var(--chat-radius) 0 0}.gtc-chat-root .chat-header-info{flex:1;min-width:0}.gtc-chat-root .chat-title{font-weight:600;font-size:1rem;margin:0 0 2px;line-height:1.3}.gtc-chat-root .chat-status{display:flex;align-items:center;gap:8px;font-size:.875rem;opacity:.9}.gtc-chat-root .status-indicator{width:8px;height:8px;background:var(--chat-success);border-radius:50%;animation:pulse 2s infinite}.gtc-chat-root .status-indicator.offline{background:var(--chat-secondary);animation:none}.gtc-chat-root .chat-header-actions{display:flex;gap:4px}.gtc-chat-root .header-btn,.gtc-chat-root .close-btn{background:#ffffff1a;border:none;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--chat-transition)}.gtc-chat-root .header-btn:hover,.gtc-chat-root .close-btn:hover{background:#fff3}.gtc-chat-root .close-btn:hover{background:var(--chat-danger)}.gtc-chat-root .chat-messages{flex:1;padding:16px;background:var(--chat-bg-light);overflow-y:auto;scroll-behavior:smooth}.gtc-chat-root .chat-messages::-webkit-scrollbar{width:6px}.gtc-chat-root .chat-messages::-webkit-scrollbar-thumb{background:var(--chat-secondary);border-radius:3px}.gtc-chat-root .empty-chat{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--chat-text-light);text-align:center;padding:24px}.gtc-chat-root .message-bubble{margin-bottom:16px;animation:fadeIn .3s ease}.gtc-chat-root .message-bubble.client{display:flex;flex-direction:column;align-items:flex-end}.gtc-chat-root .message-bubble.agent,.gtc-chat-root .message-bubble.system{display:flex;flex-direction:column;align-items:flex-start}.gtc-chat-root .message-content{max-width:80%;padding:12px 16px;border-radius:18px;word-wrap:break-word;line-height:1.4;box-shadow:var(--chat-shadow)}.gtc-chat-root .message-bubble.client .message-content{background:var(--chat-primary);color:#fff;border-bottom-right-radius:4px}.gtc-chat-root .message-bubble.agent .message-content{background:#fff;color:var(--chat-text);border:1px solid var(--chat-bg-border);border-bottom-left-radius:4px}.gtc-chat-root .message-bubble.system .message-content{background:var(--chat-warning);color:var(--chat-text);border-radius:8px;font-size:.875rem;max-width:100%;text-align:center;font-style:italic}.gtc-chat-root .message-time{font-size:.75rem;color:var(--chat-text-light);margin-top:4px;opacity:.8}.gtc-chat-root .chat-input{padding:16px;background:#fff;border-top:1px solid var(--chat-bg-light);border-radius:0 0 var(--chat-radius) var(--chat-radius)}.gtc-chat-root .chat-input-area{display:flex;align-items:flex-end;gap:8px;background:var(--chat-bg-light);border-radius:var(--chat-radius);padding:8px 12px;border:2px solid transparent;transition:var(--chat-transition);min-height:48px}.gtc-chat-root .chat-input-area:focus-within{border-color:var(--chat-primary);background:#fff}.gtc-chat-root .emoji-picker-wrapper{position:absolute;bottom:64px;right:8px;z-index:1200;animation:fadeIn .18s ease}.gtc-chat-root .emoji-picker-container{box-shadow:var(--chat-shadow);border:1px solid var(--chat-bg-border);border-radius:12px;overflow:hidden;-webkit-backdrop-filter:blur(6px) saturate(140%);backdrop-filter:blur(6px) saturate(140%)}.gtc-chat-root .emoji-btn:focus-visible,.gtc-chat-root .file-upload-btn:focus-visible,.gtc-chat-root .send-btn:focus-visible{box-shadow:var(--chat-focus-ring, 0 0 0 3px rgba(59,130,246,.45));outline:none}.gtc-chat-root .chat-input-area.disabled{background:var(--chat-bg-border);opacity:.7;flex-direction:column;padding:20px;text-align:center;gap:12px}.gtc-chat-root .message-input{flex:1;border:none;outline:none;background:transparent;font-size:.875rem;color:var(--chat-text);padding:8px 0;resize:none;max-height:120px;min-height:20px;line-height:1.4}.gtc-chat-root .message-input::placeholder{color:var(--chat-text-light)}.gtc-chat-root .chat-input-actions{display:flex;align-items:flex-end;gap:4px}.gtc-chat-root .input-btn,.gtc-chat-root .file-upload-btn{border:none;background:transparent;color:var(--chat-text-light);cursor:pointer;transition:var(--chat-transition);display:flex;align-items:center;justify-content:center;border-radius:50%;padding:8px;width:36px;height:36px}.gtc-chat-root .input-btn:hover,.gtc-chat-root .file-upload-btn:hover{background:#0000000d;color:var(--chat-primary)}.gtc-chat-root .send-btn{background:var(--chat-primary);color:#fff;margin-left:4px}.gtc-chat-root .send-btn:hover:not(:disabled){background:var(--chat-primary-hover)}.gtc-chat-root .send-btn:disabled{background:var(--chat-secondary);cursor:not-allowed;opacity:.6}.gtc-chat-root input[type=file]{display:none}.gtc-chat-root .message-attachments{margin-top:8px}.gtc-chat-root .attachment{margin-bottom:8px;border-radius:8px;overflow:hidden}.gtc-chat-root .attachment-image{max-width:200px;max-height:150px;border-radius:8px;cursor:pointer;transition:var(--chat-transition);border:1px solid var(--chat-bg-border);object-fit:cover}.gtc-chat-root .attachment-image:hover{transform:scale(1.02)}.gtc-chat-root .attachment-file{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#ffffff80;border-radius:8px;border:1px solid var(--chat-bg-border);cursor:pointer;transition:var(--chat-transition)}.gtc-chat-root .attachment-file:hover{background:#fffc}.gtc-chat-root .file-name{font-size:.875rem;color:var(--chat-text);font-weight:500}.gtc-chat-root .file-size{font-size:.75rem;color:var(--chat-text-light);margin-left:auto}.gtc-chat-root .file-preview{position:relative;margin-bottom:8px;border-radius:8px;overflow:hidden;border:1px solid var(--chat-bg-light);background:#fff}.gtc-chat-root .file-preview img{width:100%;max-height:120px;object-fit:cover}.gtc-chat-root .file-info{display:flex;align-items:center;gap:8px;padding:12px;background:var(--chat-bg-light)}.gtc-chat-root .file-info-text{flex:1;min-width:0}.gtc-chat-root .file-info-name{font-size:.875rem;font-weight:500;color:var(--chat-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gtc-chat-root .file-info-size{font-size:.75rem;color:var(--chat-text-light)}.gtc-chat-root .cancel-btn{position:absolute;top:8px;right:8px;background:#0009;color:#fff;border:none;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--chat-transition)}.gtc-chat-root .cancel-btn:hover{background:#000c}.gtc-chat-root .chat-closed-notice{color:var(--chat-text-light);font-size:.875rem;display:flex;align-items:center;gap:8px;margin-bottom:12px;font-style:italic}.gtc-chat-root .start-new-chat-btn{background:var(--chat-primary);color:#fff;border:none;padding:12px 24px;border-radius:20px;font-size:.875rem;font-weight:500;cursor:pointer;transition:var(--chat-transition);display:flex;align-items:center;gap:8px;box-shadow:var(--chat-shadow)}.gtc-chat-root .start-new-chat-btn:hover{background:var(--chat-primary-hover)}.gtc-chat-root .image-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:#000000e6;display:flex;align-items:center;justify-content:center;z-index:1001;animation:fadeIn .3s ease;padding:20px}.gtc-chat-root .image-modal-content{position:relative;max-width:90%;max-height:90%;display:flex;flex-direction:column;align-items:center}.gtc-chat-root .image-modal img{max-width:100%;max-height:80vh;border-radius:var(--chat-radius);box-shadow:0 20px 40px #00000080;object-fit:contain}.gtc-chat-root .image-modal-controls{position:absolute;top:20px;right:20px}.gtc-chat-root .image-modal-close{background:#000000b3;border:none;color:#fff;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--chat-transition)}.gtc-chat-root .image-modal-close:hover{background:var(--chat-danger)}.gtc-chat-root .image-modal-info{margin-top:16px;padding:12px 20px;background:#000000b3;border-radius:var(--chat-radius);color:#fff;font-size:.875rem;text-align:center}.gtc-chat-root .typing-indicator{display:flex;align-items:center;gap:4px;padding:12px 16px;background:#fff;border-radius:18px 18px 18px 4px;margin-bottom:16px;border:1px solid var(--chat-bg-border)}.gtc-chat-root .typing-dot{width:6px;height:6px;background:var(--chat-secondary);border-radius:50%;animation:typing 1.4s infinite ease-in-out}.gtc-chat-root .typing-dot:nth-child(2){animation-delay:.2s}.gtc-chat-root .typing-dot:nth-child(3){animation-delay:.4s}@keyframes fadeIn{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes slideUp{0%{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes pulse{0%,to{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.8}}@keyframes typing{0%,60%,to{opacity:.3}30%{opacity:1}}@media (max-width: 480px){.gtc-chat-root .chat-widget-window{width:calc(100vw - 40px);height:calc(100vh - 120px);bottom:10px;right:20px;left:20px}.gtc-chat-root .chat-fab{bottom:16px;right:16px;width:52px;height:52px}.gtc-chat-root .message-content{max-width:90%}.gtc-chat-root .image-modal{padding:16px}.gtc-chat-root .image-modal-close{width:36px;height:36px}}.gtc-chat-root .chat-fab:focus-visible,.gtc-chat-root .input-btn:focus-visible,.gtc-chat-root .file-upload-btn:focus-visible,.gtc-chat-root .send-btn:focus-visible,.gtc-chat-root .close-btn:focus-visible,.gtc-chat-root .header-btn:focus-visible,.gtc-chat-root .start-new-chat-btn:focus-visible{outline:3px solid color-mix(in srgb,var(--chat-primary) 60%,white);outline-offset:2px}@media (prefers-color-scheme: dark){:root{--chat-bg: #1f2937;--chat-bg-light: #273548;--chat-bg-border: #334155;--chat-text: #f1f5f9;--chat-text-light: #94a3b8;--chat-shadow: 0 4px 12px rgba(0,0,0,.6)}.chat-widget-window,.chat-input{background:var(--chat-bg)}.chat-input-area{background:var(--chat-bg-light)}.message-bubble.agent .message-content{background:var(--chat-bg);border-color:var(--chat-bg-border)}.message-bubble.system .message-content{background:var(--chat-warning)}.attachment-file{background:var(--chat-bg-light)}.attachment-file:hover,.file-preview{background:var(--chat-bg)}.file-info{background:var(--chat-bg-light)}}:root{--chat-color-primary: #3b82f6;--chat-color-primary-accent: #2563eb;--chat-color-bg: #ffffff;--chat-color-bg-soft: #f5f7fa;--chat-color-border: #e2e8f0;--chat-color-text: #1e293b;--chat-color-text-muted: #64748b;--chat-color-danger: #ef4444;--chat-color-warning: #fbbf24;--chat-color-success: #16a34a;--chat-shadow-sm: 0 2px 4px -1px rgba(0,0,0,.06), 0 1px 3px -1px rgba(0,0,0,.1);--chat-shadow: 0 6px 18px rgba(0,0,0,.08);--chat-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;--chat-font-size-xs: .6875rem;--chat-font-size-sm: .75rem;--chat-font-size: .875rem;--chat-font-size-md: .9375rem;--chat-font-size-lg: 1rem;--chat-space-1: 2px;--chat-space-2: 4px;--chat-space-3: 6px;--chat-space-4: 8px;--chat-space-5: 10px;--chat-space-6: 12px;--chat-space-8: 16px;--chat-space-10: 20px;--chat-space-12: 24px;--chat-radius-sm: 4px;--chat-radius: 14px;--chat-transition: .2s cubic-bezier(.4,0,.2,1);--chat-focus-ring: 0 0 0 3px color-mix(in srgb, var(--chat-color-primary) 55%, white)}.gtc-chat-root[data-theme=dark]{--chat-color-bg: #1f2937;--chat-color-bg-soft: #273548;--chat-color-border: #334155;--chat-color-text: #f1f5f9;--chat-color-text-muted: #94a3b8;--chat-shadow: 0 4px 12px rgba(0,0,0,.6)}')),document.head.appendChild(t)}}catch(a){console.error("vite-plugin-css-injected-by-js",a)}})();
-import vf, { useRef as V, useEffect as B, createElement as g, memo as vn, createContext as ja, useState as R, createRef as Tf, useContext as cf, Fragment as ma, useCallback as If, useMemo as Yf, Suspense as t1, Component as o1 } from "react";
+import If, { useRef as V, useEffect as B, createElement as g, memo as vn, createContext as ja, useState as R, createRef as xf, useContext as cf, Fragment as ma, useCallback as Nf, useMemo as Yf, Suspense as t1, Component as o1 } from "react";
 import * as u1 from "@microsoft/signalr";
 import d1 from "react-dom";
 var xe = { exports: {} }, ue = {};
@@ -16,7 +16,7 @@ var $a;
 function c1() {
   if ($a) return ue;
   $a = 1;
-  var f = vf, e = Symbol.for("react.element"), a = Symbol.for("react.fragment"), n = Object.prototype.hasOwnProperty, i = f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, r = { key: !0, ref: !0, __self: !0, __source: !0 };
+  var f = If, e = Symbol.for("react.element"), a = Symbol.for("react.fragment"), n = Object.prototype.hasOwnProperty, i = f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, r = { key: !0, ref: !0, __self: !0, __source: !0 };
   function o(u, d, s) {
     var c, w = {}, L = null, j = null;
     s !== void 0 && (L = "" + s), d.key !== void 0 && (L = "" + d.key), d.ref !== void 0 && (j = d.ref);
@@ -39,7 +39,7 @@ var de = {};
 var qa;
 function s1() {
   return qa || (qa = 1, process.env.NODE_ENV !== "production" && (function() {
-    var f = vf, e = Symbol.for("react.element"), a = Symbol.for("react.portal"), n = Symbol.for("react.fragment"), i = Symbol.for("react.strict_mode"), r = Symbol.for("react.profiler"), o = Symbol.for("react.provider"), u = Symbol.for("react.context"), d = Symbol.for("react.forward_ref"), s = Symbol.for("react.suspense"), c = Symbol.for("react.suspense_list"), w = Symbol.for("react.memo"), L = Symbol.for("react.lazy"), j = Symbol.for("react.offscreen"), I = Symbol.iterator, T = "@@iterator";
+    var f = If, e = Symbol.for("react.element"), a = Symbol.for("react.portal"), n = Symbol.for("react.fragment"), i = Symbol.for("react.strict_mode"), r = Symbol.for("react.profiler"), o = Symbol.for("react.provider"), u = Symbol.for("react.context"), d = Symbol.for("react.forward_ref"), s = Symbol.for("react.suspense"), c = Symbol.for("react.suspense_list"), w = Symbol.for("react.memo"), L = Symbol.for("react.lazy"), j = Symbol.for("react.offscreen"), I = Symbol.iterator, T = "@@iterator";
     function Q(t) {
       if (t === null || typeof t != "object")
         return null;
@@ -80,10 +80,10 @@ function s1() {
       var z = M.displayName || M.name || "";
       return z !== "" ? b + "(" + z + ")" : b;
     }
-    function Df(t) {
+    function Tf(t) {
       return t.displayName || "Context";
     }
-    function Nf(t) {
+    function kf(t) {
       if (t == null)
         return null;
       if (typeof t.tag == "number" && C("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof t == "function")
@@ -108,19 +108,19 @@ function s1() {
         switch (t.$$typeof) {
           case u:
             var M = t;
-            return Df(M) + ".Consumer";
+            return Tf(M) + ".Consumer";
           case o:
             var b = t;
-            return Df(b._context) + ".Provider";
+            return Tf(b._context) + ".Provider";
           case d:
             return aa(t, t.render, "ForwardRef");
           case w:
             var m = t.displayName || null;
-            return m !== null ? m : Nf(t.type) || "Memo";
+            return m !== null ? m : kf(t.type) || "Memo";
           case L: {
             var z = t, P = z._payload, S = z._init;
             try {
-              return Nf(S(P));
+              return kf(S(P));
             } catch {
               return null;
             }
@@ -235,29 +235,29 @@ function s1() {
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
               Reflect.construct(S, []);
-            } catch (Sf) {
-              m = Sf;
+            } catch (Df) {
+              m = Df;
             }
             Reflect.construct(t, [], S);
           } else {
             try {
               S.call();
-            } catch (Sf) {
-              m = Sf;
+            } catch (Df) {
+              m = Df;
             }
             t.call(S.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch (Sf) {
-            m = Sf;
+          } catch (Df) {
+            m = Df;
           }
           t();
         }
-      } catch (Sf) {
-        if (Sf && m && typeof Sf.stack == "string") {
-          for (var p = Sf.stack.split(`
+      } catch (Df) {
+        if (Df && m && typeof Df.stack == "string") {
+          for (var p = Df.stack.split(`
 `), rf = m.stack.split(`
 `), Z = p.length - 1, H = rf.length - 1; Z >= 1 && H >= 0 && p[Z] !== rf[H]; )
             H--;
@@ -317,7 +317,7 @@ function s1() {
       return "";
     }
     var uf = Object.prototype.hasOwnProperty, nf = {}, $ = Y.ReactDebugCurrentFrame;
-    function kf(t) {
+    function Sf(t) {
       if (t) {
         var M = t._owner, b = _(t.type, t._source, M ? M.type : null);
         $.setExtraStackFrame(b);
@@ -339,7 +339,7 @@ function s1() {
             } catch (Z) {
               p = Z;
             }
-            p && !(p instanceof Error) && (kf(z), C("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", m || "React class", b, S, typeof p), kf(null)), p instanceof Error && !(p.message in nf) && (nf[p.message] = !0, kf(z), C("Failed %s type: %s", b, p.message), kf(null));
+            p && !(p instanceof Error) && (Sf(z), C("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", m || "React class", b, S, typeof p), Sf(null)), p instanceof Error && !(p.message in nf) && (nf[p.message] = !0, Sf(z), C("Failed %s type: %s", b, p.message), Sf(null));
           }
       }
     }
@@ -477,7 +477,7 @@ function s1() {
     function Wa() {
       {
         if (na.current) {
-          var t = Nf(na.current.type);
+          var t = kf(na.current.type);
           if (t)
             return `
 
@@ -512,7 +512,7 @@ Check the top-level render call using <` + b + ">.");
           return;
         Fa[b] = !0;
         var m = "";
-        t && t._owner && t._owner !== na.current && (m = " It was passed a child from " + Nf(t._owner.type) + "."), _f(t), C('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', b, m), _f(null);
+        t && t._owner && t._owner !== na.current && (m = " It was passed a child from " + kf(t._owner.type) + "."), _f(t), C('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', b, m), _f(null);
       }
     }
     function Va(t, M) {
@@ -549,11 +549,11 @@ Check the top-level render call using <` + b + ">.");
         else
           return;
         if (b) {
-          var m = Nf(M);
+          var m = kf(M);
           Ff(b, t.props, "prop", m, t);
         } else if (M.PropTypes !== void 0 && !ia) {
           ia = !0;
-          var z = Nf(M);
+          var z = kf(M);
           C("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", z || "Unknown");
         }
         typeof M.getDefaultProps == "function" && !M.getDefaultProps.isReactClassApproved && C("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
@@ -580,7 +580,7 @@ Check the top-level render call using <` + b + ">.");
           var rf = $0();
           rf ? p += rf : p += Wa();
           var Z;
-          t === null ? Z = "null" : Qf(t) ? Z = "array" : t !== void 0 && t.$$typeof === e ? (Z = "<" + (Nf(t.type) || "Unknown") + " />", p = " Did you accidentally export a JSX literal instead of a component?") : Z = typeof t, C("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", Z, p);
+          t === null ? Z = "null" : Qf(t) ? Z = "array" : t !== void 0 && t.$$typeof === e ? (Z = "<" + (kf(t.type) || "Unknown") + " />", p = " Did you accidentally export a JSX literal instead of a component?") : Z = typeof t, C("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", Z, p);
         }
         var H = X0(t, M, b, z, P);
         if (H == null)
@@ -634,7 +634,7 @@ const ta = {}, Pe = (f) => f ? f.replace(/\/$/, "") : typeof window < "u" && win
     return { status: 0, error: (r == null ? void 0 : r.message) || "Network error" };
   }
 };
-let xf = null;
+let vf = null;
 function M1() {
   var f, e;
   return typeof window < "u" && window.CHAT_API_BASE || ((e = (f = import.meta) == null ? void 0 : f.env) == null ? void 0 : e.VITE_CHAT_API_BASE) || "https://borrador-n453.onrender.com/api";
@@ -645,25 +645,34 @@ function w1() {
   return (f || e.replace(/\/api$/, "")).replace(/\/$/, "");
 }
 function L1(f) {
-  let a = `${w1()}/hubs/chat?chatSessionId=${encodeURIComponent(f)}`;
-  return a.startsWith("https://") && (a = a.replace("https://", "wss://")), a.startsWith("http://") && (a = a.replace("http://", "ws://")), a;
+  return `${w1()}/hubs/chat?chatSessionId=${encodeURIComponent(f)}`;
 }
 const b1 = async (f, e, a = null) => {
-  if (xf) return;
+  if (vf) return;
   const n = L1(f);
-  console.log("[signalr] Conectando a", n), xf = new u1.HubConnectionBuilder().withUrl(n).withAutomaticReconnect().build(), xf.on("ReceiveMessage", (i, r, o, u, d) => {
+  console.log("[signalr] Conectando a", n), vf = new u1.HubConnectionBuilder().withUrl(n).withAutomaticReconnect().build(), vf.on("ReceiveMessage", (i, r, o, u, d) => {
     console.log("📩 Mensaje recibido:", { sessionId: i, sender: r, content: o, timestamp: u, attachments: d }), e(i, r, o, u, d);
-  }), xf.on("ChatClosed", (i, r, o) => {
+  }), vf.on("ChatClosed", (i, r, o) => {
     console.log("🔒 Chat cerrado por soporte:", { sessionId: i, message: r, timestamp: o }), a && a(i, r, o);
-  }), await xf.start(), console.log("[signalr] Conectado");
-}, j1 = async () => {
-  if (xf) {
+  });
+  try {
+    await vf.start(), console.log("[signalr] Conectado");
+  } catch (i) {
+    console.error("[signalr] Error iniciando conexión", i);
     try {
-      await xf.stop();
+      await vf.stop();
+    } catch {
+    }
+    throw vf = null, i;
+  }
+}, j1 = async () => {
+  if (vf) {
+    try {
+      await vf.stop();
     } catch (f) {
       console.warn("[signalr] Error al detener", f);
     }
-    xf = null;
+    vf = null;
   }
 }, m1 = ({
   onClick: f,
@@ -18470,20 +18479,20 @@ function _n() {
     n(Date.now());
   }];
 }
-var Vn = /* @__PURE__ */ vf.createContext({});
+var Vn = /* @__PURE__ */ If.createContext({});
 function Kn() {
-  var f = vf.useContext(Vn);
+  var f = If.useContext(Vn);
   return f;
 }
 function vi(f) {
-  var e = vf.useRef({
+  var e = If.useRef({
     onEmojiClick: f.onEmojiClick || ze,
     onReactionClick: f.onReactionClick || f.onEmojiClick,
     onSkinToneChange: f.onSkinToneChange || ze
   });
-  return vf.useEffect(function() {
+  return If.useEffect(function() {
     e.current.onEmojiClick = f.onEmojiClick || ze, e.current.onReactionClick = f.onReactionClick || f.onEmojiClick;
-  }, [f.onEmojiClick, f.onReactionClick]), vf.useEffect(function() {
+  }, [f.onEmojiClick, f.onReactionClick]), If.useEffect(function() {
     e.current.onSkinToneChange = f.onSkinToneChange || ze;
   }, [f.onSkinToneChange]), e;
 }
@@ -18667,14 +18676,14 @@ function Bi(f) {
   }, e);
 }
 var t0 = /* @__PURE__ */ ja({
-  AnchoredEmojiRef: /* @__PURE__ */ Tf(),
-  BodyRef: /* @__PURE__ */ Tf(),
-  CategoryNavigationRef: /* @__PURE__ */ Tf(),
-  PickerMainRef: /* @__PURE__ */ Tf(),
-  SearchInputRef: /* @__PURE__ */ Tf(),
-  SkinTonePickerRef: /* @__PURE__ */ Tf(),
-  VariationPickerRef: /* @__PURE__ */ Tf(),
-  ReactionsRef: /* @__PURE__ */ Tf()
+  AnchoredEmojiRef: /* @__PURE__ */ xf(),
+  BodyRef: /* @__PURE__ */ xf(),
+  CategoryNavigationRef: /* @__PURE__ */ xf(),
+  PickerMainRef: /* @__PURE__ */ xf(),
+  SearchInputRef: /* @__PURE__ */ xf(),
+  SkinTonePickerRef: /* @__PURE__ */ xf(),
+  VariationPickerRef: /* @__PURE__ */ xf(),
+  ReactionsRef: /* @__PURE__ */ xf()
 });
 function Ef() {
   return cf(t0);
@@ -18724,7 +18733,7 @@ function Hi(f, e) {
 }
 function Wi() {
   var f = Lf();
-  return If(function(e) {
+  return Nf(function(e) {
     requestAnimationFrame(function() {
       f.current && (f.current.scrollTop = e);
     });
@@ -18805,7 +18814,7 @@ function fr(f) {
   return u;
 }
 function Bf() {
-  var f = re(), e = f[0], a = f[1], n = pe(), i = n[0], r = n[1], o = If(function() {
+  var f = re(), e = f[0], a = f[1], n = pe(), i = n[0], r = n[1], o = Nf(function() {
     e && a(null), i && r(!1);
   }, [e, i, a, r]);
   return o;
@@ -18851,19 +18860,19 @@ function ar() {
 }
 function Gf() {
   var f = Af();
-  return If(function() {
+  return Nf(function() {
     sf(f.current);
   }, [f]);
 }
 function nr() {
   var f = Sa();
-  return If(function() {
+  return Nf(function() {
     f.current && r0(f.current);
   }, [f]);
 }
 function l0() {
   var f = Da();
-  return If(function() {
+  return Nf(function() {
     f.current && r0(f.current);
   }, [f]);
 }
@@ -19165,13 +19174,13 @@ function jr() {
 }
 function L0() {
   var f = l0(), e = _e(), a = Lf();
-  return If(function() {
+  return Nf(function() {
     return e ? Xe(a.current) : f();
   }, [a, f, e]);
 }
 function mr() {
   var f = Gf(), e = l0(), a = _e();
-  return If(function() {
+  return Nf(function() {
     return a ? f() : e();
   }, [f, a, e]);
 }
@@ -19628,7 +19637,7 @@ function P0(f) {
   return f.imgUrl !== void 0;
 }
 function R0(f, e) {
-  var a = V(), n = M0(), i = hi(), r = re(), o = r[1], u = Bf(), d = ka(), s = d[0], c = Ti(e), w = _n(), L = w[1], j = Uf(), I = Of(), T = If(function(K) {
+  var a = V(), n = M0(), i = hi(), r = re(), o = r[1], u = Bf(), d = ka(), s = d[0], c = Ti(e), w = _n(), L = w[1], j = Uf(), I = Of(), T = Nf(function(K) {
     if (!i.current) {
       u();
       var ff = wn(K), ef = ff[0], af = ff[1];
@@ -19637,14 +19646,14 @@ function R0(f, e) {
         L(), Or(ef, Rf), c(Br(ef, Rf, I, j), K);
       }
     }
-  }, [s, u, i, c, L, j, I]), Q = If(function(K) {
+  }, [s, u, i, c, L, j, I]), Q = Nf(function(K) {
     var ff;
     a.current && clearTimeout(a.current);
     var ef = wn(K), af = ef[0];
     !af || !ne(af) || (a.current = (ff = window) == null ? void 0 : ff.setTimeout(function() {
       i.current = !0, a.current = void 0, u(), n(K.target), o(af);
     }, 500));
-  }, [i, u, n, o]), Y = If(function() {
+  }, [i, u, n, o]), Y = Nf(function() {
     a.current ? (clearTimeout(a.current), a.current = void 0) : i.current && requestAnimationFrame(function() {
       i.current = !1;
     });
@@ -21266,7 +21275,7 @@ const _t = ({
     ) }) })
   ] });
 }, Vt = ({ clientId: f, clientName: e = "", systemCode: a, apiBase: n, systemOriginIdOverride: i }) => {
-  const [r, o] = R(null), [u, d] = R([]), [s, c] = R(""), [w, L] = R(!1), [j, I] = R(!1), [T, Q] = R(!1), [Y, C] = R(!1), [K, ff] = R(null), [ef, af] = R(null), [Rf, Zf] = R(null), [bf, Hf] = R(!1), [aa, Df] = R(!1), [Nf, jf] = R(0), U = {
+  const [r, o] = R(null), [u, d] = R([]), [s, c] = R(""), [w, L] = R(!1), [j, I] = R(!1), [T, Q] = R(!1), [Y, C] = R(!1), [K, ff] = R(null), [ef, af] = R(null), [Rf, Zf] = R(null), [bf, Hf] = R(!1), [aa, Tf] = R(!1), [kf, jf] = R(0), U = {
     chatId: `chat_${f}_${a}_id`,
     messages: `chat_${f}_${a}_messages`,
     hasStarted: `chat_${f}_${a}_started`,
@@ -21354,7 +21363,7 @@ const _t = ({
                 const _ = new Date(k).getTime(), uf = A.filter(($) => {
                   if ($.content !== "[Archivo]" || $.attachments && $.attachments.length > 0)
                     return !0;
-                  const kf = new Date($.sentAt).getTime(), Ff = Math.abs(_ - kf), oe = $.sender === of, Qf = Ff < 15e3;
+                  const Sf = new Date($.sentAt).getTime(), Ff = Math.abs(_ - Sf), oe = $.sender === of, Qf = Ff < 15e3;
                   return oe && Qf ? (console.log("🗑️ Eliminando mensaje duplicado sin attachment:", $), !1) : !0;
                 });
                 console.log("✅ Agregando mensaje con attachment definitivo");
@@ -21365,7 +21374,7 @@ const _t = ({
                 console.log("⚠️ Mensaje '[Archivo]' sin attachments recibido, verificando duplicados...");
                 const _ = new Date(k).getTime();
                 if (A.some((nf) => {
-                  const $ = new Date(nf.sentAt).getTime(), kf = Math.abs(_ - $), Ff = nf.sender === of, oe = kf < 15e3, Qf = nf.attachments && nf.attachments.length > 0;
+                  const $ = new Date(nf.sentAt).getTime(), Sf = Math.abs(_ - $), Ff = nf.sender === of, oe = Sf < 15e3, Qf = nf.attachments && nf.attachments.length > 0;
                   return Ff && oe && Qf;
                 }))
                   return console.log("🚫 Ignorando mensaje '[Archivo]' sin attachments porque ya existe versión con attachments"), A;
@@ -21402,7 +21411,7 @@ const _t = ({
   }, [j, w, r, bf, T]);
   const te = async () => {
     if (!s.trim() && !ef || bf) return;
-    Df(!0);
+    Tf(!0);
     let E = r;
     if (!j) {
       const N = n || Pe();
@@ -21412,7 +21421,7 @@ const _t = ({
         console.error("[chat] fallo startChat", D);
         const mf = D ? D.status : "desconocido", A = D ? D.error || "Error desconocido" : "Sin detalles";
         alert("No se pudo iniciar el chat (" + mf + `)
-` + A), Df(!1);
+` + A), Tf(!1);
         return;
       }
       E = D.id, o(E), I(!0), localStorage.setItem(U.chatId, E), localStorage.setItem(U.hasStarted, "true"), localStorage.setItem(U.isClosed, "false");
@@ -21432,7 +21441,7 @@ const _t = ({
       d(X), localStorage.setItem(U.messages, JSON.stringify(X));
     }
     if (!E) {
-      Df(!1);
+      Tf(!1);
       return;
     }
     try {
@@ -21453,7 +21462,7 @@ const _t = ({
       if (!D.ok) {
         const k = await D.text();
         console.error("[chat] fallo envío", D.status, k), alert("Error al enviar mensaje (" + D.status + `)
-` + k), Df(!1);
+` + k), Tf(!1);
         return;
       }
       let x = await D.json();
@@ -21475,7 +21484,7 @@ const _t = ({
     } catch (N) {
       console.error("[chat] excepción envío:", N), alert("Excepción al enviar el mensaje. Revisa consola.");
     } finally {
-      Df(!1);
+      Tf(!1);
     }
   }, Se = (E) => {
     const N = new Date(E), D = /* @__PURE__ */ new Date(), x = (D.getTime() - N.getTime()) / (1e3 * 60 * 60);
@@ -21523,7 +21532,7 @@ const _t = ({
       m1,
       {
         isOpen: T,
-        unreadCount: Nf,
+        unreadCount: kf,
         onClick: () => {
           Q(!0), jf(0);
         }
@@ -21635,10 +21644,10 @@ function Kt() {
 }
 var Xt = Kt(), pn;
 try {
-  const f = (pn = vf) == null ? void 0 : pn.version;
+  const f = (pn = If) == null ? void 0 : pn.version;
   f ? console.info("[client-chat-widget] React version:", f) : console.error("[client-chat-widget] React no detectado. Instala react y react-dom o usa el bundle standalone.");
   const e = window.React;
-  e && e !== vf && console.warn("[client-chat-widget] Doble React detectado (global + módulo). Esto causa errores. Asegura una sola fuente.");
+  e && e !== If && console.warn("[client-chat-widget] Doble React detectado (global + módulo). Esto causa errores. Asegura una sola fuente.");
 } catch {
 }
 async function fo(f) {
@@ -21646,7 +21655,7 @@ async function fo(f) {
   let r = document.getElementById(i);
   r || (r = document.createElement("div"), r.id = i, document.body.appendChild(r));
   const o = Xt.createRoot(r);
-  return o.render(vf.createElement(Vt, { clientId: e, systemCode: a, clientName: n })), () => o.unmount();
+  return o.render(If.createElement(Vt, { clientId: e, systemCode: a, clientName: n })), () => o.unmount();
 }
 export {
   Vt as ClientChat,

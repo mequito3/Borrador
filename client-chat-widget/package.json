@@ -1,6 +1,6 @@
 {
   "name": "client-chat-widget",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
   "main": "./dist/client-chat-widget.umd.cjs",
   "module": "./dist/client-chat-widget.js",

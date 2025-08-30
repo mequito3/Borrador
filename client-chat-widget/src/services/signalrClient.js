@@ -14,11 +14,9 @@ function resolveSignalRBase() {
 }
 
 function buildHubUrl(chatSessionId) {
-  let base = resolveSignalRBase();
-  let url = `${base}/hubs/chat?chatSessionId=${encodeURIComponent(chatSessionId)}`;
-  if (url.startsWith('https://')) url = url.replace('https://', 'wss://');
-  if (url.startsWith('http://')) url = url.replace('http://', 'ws://');
-  return url;
+  const base = resolveSignalRBase();
+  // Mantener http/https para que SignalR realice negotiate correctamente y luego haga upgrade a WebSockets.
+  return `${base}/hubs/chat?chatSessionId=${encodeURIComponent(chatSessionId)}`;
 }
 
 export const connectClientToChat = async (chatSessionId, onReceive, onChatClosed = null) => {
@@ -26,7 +24,7 @@ export const connectClientToChat = async (chatSessionId, onReceive, onChatClosed
   const hubUrl = buildHubUrl(chatSessionId);
   console.log('[signalr] Conectando a', hubUrl);
   connection = new signalR.HubConnectionBuilder()
-    .withUrl(hubUrl)
+    .withUrl(hubUrl) // no forzamos wss: negotiate necesita http/https
     .withAutomaticReconnect()
     .build();
 
@@ -40,8 +38,15 @@ export const connectClientToChat = async (chatSessionId, onReceive, onChatClosed
     if (onChatClosed) onChatClosed(sessionId, message, timestamp);
   });
 
-  await connection.start();
-  console.log('[signalr] Conectado');
+  try {
+    await connection.start();
+    console.log('[signalr] Conectado');
+  } catch (err) {
+    console.error('[signalr] Error iniciando conexión', err);
+    try { await connection.stop(); } catch {}
+    connection = null;
+    throw err;
+  }
 };
 
 export const disconnectClient = async () => {
